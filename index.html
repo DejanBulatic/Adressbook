@@ -8,7 +8,7 @@
     <style>
         body {
             display: grid;
-            grid-row: 30rem auto;
+            grid-template-columns: 30rem auto;
         }
     </style>
 </head>
@@ -39,14 +39,62 @@
 
     </main>
     <template id="person">
-        <p>Name and surname {{namesurname}}</p>
-        <p>Phone number {{phonenumber}}</p>
+        <p>Name and surname: {{namesurname}}</p>
+        <p>Phone number: {{phonenumber}}</p>
         {{email}}
         <div>
-            <img src="{{photo}}" alt="{{namesurname}} photo">
+            <img src="{{picture}}" alt="{{namesurname}} photo">
         </div>
 
     </template>
+
+    <script>
+        //HTML elements
+        const inputNameSurname = document.getElementById("namesurname");
+        const inputPhoneNumber = document.getElementById("phonenumber");
+        const inputEmail = document.getElementById("email");
+        const inputPicture = document.getElementById("picture");
+        const buttonAdd = document.getElementById("add");
+        const displayAddressbook = document.getElementById("addressbook");
+        const tplPerson = document.getElementById("person");
+
+        const noPicture = 'https://aikidojo.lv/wp-content/uploads/2019/08/nophoto.jpg';
+
+        //Events
+        buttonAdd.onclick = () => {
+            //Values
+            const namesurname = inputNameSurname.value;
+            const phonenumber = inputPhoneNumber.value;
+            const email = inputEmail.value;
+            let picture = inputPicture.value;
+            let html_email = "";
+
+            //Required condition
+            if (namesurname.trim().length == 0 || phonenumber.trim().length == 0) {
+                alert("Please enter your name, surname and phone number");
+                return
+            };
+
+            //If no email is entered display empty string
+            if (email.trim().length != 0) {
+                html_email = `<p>Email: ${email}`;
+            }
+
+            //If no picture use noPicture
+            if (picture.trim().length == 0) {
+                picture = noPicture;
+            }
+
+            //Replacing template names
+            displayAddressbook.innerHTML += tplPerson.innerHTML
+                                            .replace(/{{namesurname}}/g, namesurname)
+                                            .replace(/{{phonenumber}}/g, phonenumber)
+                                            .replace(/{{email}}/g, email)
+                                            .replace(/{{picture}}/g, picture);
+        };
+
+        
+    </script>
 </body>
 
 </html>
