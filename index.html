@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AddressBook</title>
+    <style>
+        body {
+            display: grid;
+            grid-row: 30rem auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +20,7 @@
             <input type="text" id="namesurname">
         </div>
         <div>
-            <p>Phonenumber</p>
+            <p>Phone number</p>
             <input type="number" id="phonenumber">
         </div>
         <div>
@@ -30,9 +36,17 @@
         </div>
     </aside>
     <main id="addressbook">
-        
-    </main>
 
+    </main>
+    <template id="person">
+        <p>Name and surname {{namesurname}}</p>
+        <p>Phone number {{phonenumber}}</p>
+        {{email}}
+        <div>
+            <img src="{{photo}}" alt="{{namesurname}} photo">
+        </div>
+
+    </template>
 </body>
 
 </html>
