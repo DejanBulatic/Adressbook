@@ -1,4 +1,4 @@
-## Address Book Example
+# Address Book Example
 Add contacts to a list, with **inputs** for:
 * Name and surname (Required)
 * Phone number (Required)
@@ -10,7 +10,7 @@ Using:
 * **onclick #event** to grab the values from the inputs and add the new contact to the list
 
 Other hashtags: 
-* #javaScript 
-* #template literals 
-* #.replace()
-* #if statements
+* **#javaScript** 
+* **#template literals** 
+* **#.replace()**
+* **#if statements**
